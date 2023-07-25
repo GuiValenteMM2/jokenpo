@@ -35,16 +35,16 @@ function createResultLines(resultLine) {
     return divResults.appendChild(showResult);
 }
 const rockButton = document.querySelector('#rockButton');
-rockButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
-rockButton.addEventListener('click', createResultLines(playRound('ROCK', getComputerChoice())));
+rockButton.addEventListener('click', () => 
+createResultLines(playRound('ROCK', getComputerChoice(getRandomNumber(1, 3)))));
 
 const paperButton = document.querySelector('#paperButton');
-paperButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
-paperButton.addEventListener('click', createResultLines(playRound('PAPER', getComputerChoice())));
+paperButton.addEventListener('click', () =>
+createResultLines(playRound('PAPER', getComputerChoice(getRandomNumber(1, 3)))));
 
 const scissorButton = document.querySelector('#scissorButton');
-scissorButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
-scissorButton.addEventListener('click', createResultLines(playRound('SCISSOR', getComputerChoice())));
+scissorButton.addEventListener('click', () =>
+createResultLines(playRound('SCISSOR', getComputerChoice(getRandomNumber(1, 3)))));
 
 
 
