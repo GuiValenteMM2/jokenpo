@@ -2,9 +2,7 @@ function getRandomNumber (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let randomNumber = getRandomNumber(1, 3);
-
-function getComputerChoice () {
+function getComputerChoice (randomNumber) {
     if (randomNumber === 1) {
         return 'ROCK';
     }
@@ -17,27 +15,36 @@ function getComputerChoice () {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'SCISSOR' ||
-    playerSelection.toUpperCase() === 'PAPER' && computerSelection === 'ROCK' ||
-    playerSelection.toUpperCase() === 'SCISSOR' && computerSelection === 'PAPER') {
-        return 'You won';
+    if (playerSelection === 'ROCK' && computerSelection === 'SCISSOR' ||
+    playerSelection === 'PAPER' && computerSelection === 'ROCK' ||
+    playerSelection === 'SCISSOR' && computerSelection === 'PAPER') {
+        return "w"
     } else {
-        return 'You lose';
+        return "l";
     }
 }
 
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        const playerPrompt = prompt("Choose rock, paper or scissor");
-        const computerChoice = getComputerChoice();
-        console.log(playRound(playerPrompt, computerChoice));
+function createResultLines(resultLine) {
+    const divResults = document.querySelector('#results');
+    const showResult = document.createElement('p');
+    if (resultLine === "w") {
+        showResult.textContent = "You won a round!";
+    } else if (resultLine === "l") {
+        showResult.textContent = "You lost this round.";
     }
+    return divResults.appendChild(showResult);
 }
+const rockButton = document.querySelector('#rockButton');
+rockButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
+rockButton.addEventListener('click', createResultLines(playRound('ROCK', getComputerChoice())));
 
-game();
+const paperButton = document.querySelector('#paperButton');
+paperButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
+paperButton.addEventListener('click', createResultLines(playRound('PAPER', getComputerChoice())));
 
-
-
+const scissorButton = document.querySelector('#scissorButton');
+scissorButton.addEventListener('click', getComputerChoice(getRandomNumber(1, 3)));
+scissorButton.addEventListener('click', createResultLines(playRound('SCISSOR', getComputerChoice())));
 
 
 
