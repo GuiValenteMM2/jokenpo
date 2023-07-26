@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokenpo</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
-        <button class="choiceButton" id="rockButton">ROCK</button>
-        <button class="choiceButton" id="paperButton">PAPER</button>
-        <button class="choiceButton" id="scissorButton">SCISSOR</button>
+        <h1 id="title">ROCK, PAPER AND SCISSOR!</h1>
+        
+        <div id="buttonsContainer">
+            <button class="choiceButton" id="rockButton"><img class="choiceImg"
+            src="images/pixelrock.png" alt="rock"></button>
+            <button class="choiceButton" id="paperButton"><img class="choiceImg"
+            src="images/pixelpaper.png" alt="paper"></button>
+            <button class="choiceButton" id="scissorButton"><img class="choiceImg"
+            src="images/pixelscissor.png" alt="scissor"></button>
+        </div>
+        <div id="results"> <h1 id="finalResult"></h1>
+            <h2 class="score">Player Score:</h2>
+            <p class="points" id="playerPoints">0</p>
+            <h2 class="score">Computer Score:</h2>
+            <p class="points" id="computerPoints">0</p>
+            <button onclick="window.location.reload()" id="tryAgain"
+            style="display: none;">Try again.</button>
+        </div>
     </div>
-    <div id="results"></div>
 </body>
 </html>
