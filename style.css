@@ -72,7 +72,7 @@ button {
 }
 
 #tryAgain {
-    width: 320px;
+    width: 400px;
     height: 80px;
     background-color: white;
     border-radius: 12px;
@@ -80,6 +80,7 @@ button {
     font-family: Handjet;
     font-size: 10mm;
     padding: 8px;
+    justify-self: center;
 }
 
 #finalResult {
